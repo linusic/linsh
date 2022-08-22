@@ -19,6 +19,20 @@ result = s("ls -al") >...
 print(result.stdout)
 print(result.stderr)
 ```
+
+return `stdout` and `not print`  
+```python
+out = s("ls -al") > 1
+print(out)
+```
+
+return `stderr` and `not print`  
+```python
+err = s("llll") > 2
+print(err)
+```
+
+
 pipeline
 ```python
 s("ps aux | grep 1 | grep root") >None
