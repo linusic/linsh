@@ -1,5 +1,22 @@
+import argparse
 import subprocess as sp
 
+def init():
+    parser = argparse.ArgumentParser(description='', usage='python ___.py _ _ _ ...')
+    parser.add_argument('_', type=str, nargs='+')
+    args = parser.parse_args()
+
+    available_variable_names = []
+    for index, value in  enumerate(args._, start=1):
+        exec(f"_{index}='{value}'", globals())  # inner func, must be globals
+        available_variable_names.append(f"_{index}")
+
+    for index, value in  enumerate(args._, start=-len(args._)):
+        exec(f"__{-index}='{value}'", globals())  # inner func, must be globals
+        available_variable_names.append(f"__{-index}")
+
+    exec(f"__={args._}", globals())  # inner func, must be globals
+    return available_variable_names
 
 class LinSH(str):
     def __init__(self, init: str):
