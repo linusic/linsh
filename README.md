@@ -47,22 +47,20 @@ cmd3 = "grep root"
 s(cmd)| cmd2 | cmd3 > None
 ```
 
-### init
+### Global Variables
 
 add `your_script.py`
 
 ```python
-from linsh import init
+from linsh import *
 
-available_names = init()
-print(available_names) # ['_1', '_2', '_3', '__3', '__2', '__1']
-
-# after below >> python your_script.py a b c
-# you can see the result
+# >> python your_script.py a b c
+# then you can see below result
 print(_1, _2, _3)    # a b c   # index        (1-based)
 print(__1, __2, __3) # c b a   # reverse-index(-1-based)
 
 print(__)            # ['a', 'b', 'c']   # equal to sys.argv[1:]
+print(___)           # ['_1', '_2', '_3', '__3', '__2', '__1']
 ```
 
 run `your_script.py`
