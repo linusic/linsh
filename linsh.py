@@ -16,7 +16,9 @@ class LinSH(str):
                                  stdout=subprocess.PIPE)
         # return None, but directly print stdout and stderr
         if other is None:
-            subprocess.run(self.init, shell=True, universal_newlines=True)
+            only_return_code_obj = subprocess.run(self.init, shell=True, universal_newlines=True)
+            return only_return_code_obj.returncode
+
         # return (stderr + stdout), but not print
         elif other is Ellipsis:
             return sub_obj
