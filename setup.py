@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='linsh',
-    version="0.1.0",
+    version="0.1.1",
     author="linusic",
     author_email='cython_lin@cklin.top',
     description="magic operator for sh",
