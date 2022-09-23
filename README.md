@@ -9,9 +9,9 @@ pip install linsh
 from linsh import LinSH as s
 ```
 
-return `None`; directly `print` result
+`only` return `returncode`; directly `print` result
 ```python
-s("ls -al") >None
+returncode = s("ls -al") >None
 ```
 
 return `<subprocess.CompletedProcess>` and `not print`  
